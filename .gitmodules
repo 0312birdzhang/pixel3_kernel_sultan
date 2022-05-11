@@ -12,7 +12,7 @@
 	url = ../android_kernel_google_bluecross_msm-extra
 [submodule "scripts/dtc-aosp/dtc"]
 	path = scripts/dtc-aosp/dtc
-	url = https://android.googlesource.com/platform/external/dtc
+	url = https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/platform/external/dtc
 [submodule "scripts/ufdt/libufdt"]
 	path = scripts/ufdt/libufdt
-	url = https://android.googlesource.com/platform/system/libufdt
+	url = https://mirrors.tuna.tsinghua.edu.cn/git/AOSP/platform/system/libufdt
