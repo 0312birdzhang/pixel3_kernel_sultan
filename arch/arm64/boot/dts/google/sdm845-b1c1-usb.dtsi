@@ -17,6 +17,7 @@
 
 &usb0 {
 	google,switch-vbus = <250>;
+	qcom,no-vbus-vote-with-type-C;
 };
 
 &tlmm {
