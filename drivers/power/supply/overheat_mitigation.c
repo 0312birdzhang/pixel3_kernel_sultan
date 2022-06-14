@@ -271,8 +271,9 @@ static int update_usb_status(struct overheat_info *ovh_info)
 
 	if (curr_state != prev_state)
 		dev_info(ovh_info->dev,
-			 "USB is %sconnected",
-			 curr_state ? "" : "dis");
+			 "USB is %sconnected, %s",
+			 curr_state ? "" : "dis",
+			ovh_info->accessory_connected?(ret == POWER_SUPPLY_TYPEC_SINK?"TYPEC_SINK":"TYPEC_SINK_POWERED_CABLE"):"not accessory");
 
 	// USB should be disconnected for two cycles before replug is acked
 	if (ovh_info->overheat_mitigation && !curr_state && !prev_state)
