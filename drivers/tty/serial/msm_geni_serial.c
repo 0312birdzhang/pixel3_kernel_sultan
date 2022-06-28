@@ -2534,7 +2534,13 @@ static int msm_geni_serial_probe(struct platform_device *pdev)
 								GFP_KERNEL);
 	} else {
 		pm_runtime_set_suspended(&pdev->dev);
-		pm_runtime_set_autosuspend_delay(&pdev->dev, 150);
+    /*
+    > Writing "-1" to power/autosuspend_delay_ms and writing "on" to
+    > power/control do essentially the same thing -- they both prevent the
+    > device from being autosuspended.
+    Writing "on" doesn't seem to work. Hardcoding -1 for the delay.
+    */
+		pm_runtime_set_autosuspend_delay(&pdev->dev, -1);
 		pm_runtime_use_autosuspend(&pdev->dev);
 		pm_runtime_enable(&pdev->dev);
 	}
