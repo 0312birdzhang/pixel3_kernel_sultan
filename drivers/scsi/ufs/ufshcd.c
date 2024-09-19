@@ -8474,7 +8474,7 @@ static int ufshcd_query_desc_for_ufshpb(struct ufs_hba *hba, int lun,
 		case QUERY_DESC_IDN_UNIT:
 			if (!ufs_is_valid_unit_desc_lun(lun)) {
 				err = -EINVAL;
-				dev_err(hba->dev,
+				dev_dbg(hba->dev,
 					"%s: No unit descriptor for lun 0x%x\n",
 						__func__, lun);
 				goto out_release_mem;
@@ -8773,7 +8773,7 @@ static int ufshcd_ioctl(struct scsi_device *dev, int cmd, void __user *buffer)
 
 	BUG_ON(!hba);
 	if (!buffer) {
-		dev_err(hba->dev, "%s: User buffer is NULL!\n", __func__);
+		dev_dbg(hba->dev, "%s: User buffer is NULL!\n", __func__);
 		return -EINVAL;
 	}
 
